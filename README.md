@@ -16,7 +16,7 @@
 
 ## -------------- INSTALL --------------
 ```bash
-pacman -S hyprland hyprpaper waybar wofi alacritty zsh firefox otf-font-awesome ttf-jetbrains-mono dolphin git
+pacman -S hyprland hyprpaper waybar wofi alacritty zsh firefox otf-font-awesome ttf-jetbrains-mono dolphin git nano
 ```
 
 After installing the packages, run the bash script
@@ -33,5 +33,25 @@ cd hyprland-rice
 chmod +x install.sh
 ./install.sh
 ```
+
+## -------------- SETTINGS --------------
+After copying all the configuration files, you need to configure the monitors.
+
+1. Let's go to `~/.config/hypr/`
+
+2. We write 
+```bash
+nano hyprland.conf
+```
+
+3. Find the 4th line and enter your monitor parameters there (standard hyprland settings)
+   `To see your monitor ID, type hyprctl monitors`
+
+4. Save by pressing ctrl+x and go to the second file
+```bash
+nano hyprpaper.conf
+```
+
+5. Change the empty parameter to "," to your monitor's ID. 
 
 Once you have installed rice, it is advisable to reboot the hyprland session or the computer itself.
