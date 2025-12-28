@@ -1,130 +1,121 @@
+/* ═══════════════════════════════════════════════════════════
+   МИНИМАЛИСТИЧНЫЙ WAYBAR — ПОЛУПРОЗРАЧНЫЙ
+   ═══════════════════════════════════════════════════════════ */
+
 * {
-    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
-    font-size: 12px;
-    font-weight: bold;
+    font-family: "JetBrains Mono Nerd Font", "JetBrains Mono", monospace;
+    font-size: 13px;
+    font-weight: 600;
     min-height: 0;
+    margin: 0;
+    padding: 0;
 }
 
+/* Основная панель — полупрозрачная везде */
 window#waybar {
-    background: transparent;
+    background: rgba(10, 15, 28, 0.45);
+    border-radius: 14px;
+    border: 1px solid rgba(90, 140, 220, 0.15);
 }
 
+window#waybar.hidden {
+    opacity: 0;
+}
+
+/* ═══════════════════════════════════════
+   РАБОЧИЕ СТОЛЫ
+   ═══════════════════════════════════════ */
 #workspaces {
-    background: rgba(30, 30, 46, 0.9);
-    border-radius: 16px;
-    margin: 4px 0;
-    padding: 0 4px;
-    border: 1px solid rgba(137, 180, 250, 0.3);
-}
-
-#workspaces button {
-    color: #6c7086;
-    background: transparent;
-    border-radius: 12px;
-    margin: 3px 1px;
-    padding: 3px 8px;
-    font-size: 12px;
-}
-
-#workspaces button:hover {
-    background: rgba(137, 180, 250, 0.2);
-    color: #89b4fa;
-}
-
-#workspaces button.active {
-    background: linear-gradient(135deg, #89b4fa 0%, #b4befe 100%);
-    color: #1e1e2e;
+    background: rgba(20, 30, 55, 0.6);
+    padding: 0 6px;
+    margin: 6px 6px;
     border-radius: 10px;
 }
 
+#workspaces button {
+    color: rgba(122, 162, 247, 0.4);
+    padding: 0 8px;
+    margin: 4px 2px;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    min-width: 28px;
+}
+
+#workspaces button:hover {
+    color: #7aa2f7;
+    background: rgba(122, 162, 247, 0.15);
+}
+
+#workspaces button.active {
+    color: #0a0f1c;
+    background: linear-gradient(135deg, #5a8fdc, #7aa2f7);
+}
+
 #workspaces button.urgent {
-    background: linear-gradient(135deg, #f38ba8 0%, #eba0ac 100%);
-    color: #1e1e2e;
+    background: linear-gradient(135deg, #3d5a99, #5a8fdc);
+    color: #c8d6f7;
 }
 
-#language {
-    background: rgba(30, 30, 46, 0.9);
-    color: #f9e2af;
-    border-radius: 16px;
-    margin: 4px 2px 4px 4px;
-    padding: 3px 10px;
-    border: 1px solid rgba(249, 226, 175, 0.3);
+/* ═══════════════════════════════════════
+   ЧАСЫ
+   ═══════════════════════════════════════ */
+#clock {
+    background: rgba(20, 30, 55, 0.6);
+    color: #a9c1f7;
+    font-weight: 600;
+    padding: 0 20px;
+    margin: 6px 3px;
+    border-radius: 10px;
 }
 
-#language:hover {
-    background: rgba(40, 40, 56, 0.95);
+#clock:hover {
+    background: rgba(30, 45, 70, 0.7);
 }
 
-#custom-datetime {
-    background: rgba(30, 30, 46, 0.9);
-    color: #a6e3a1;
-    border-radius: 16px;
-    margin: 4px 0;
-    padding: 3px 14px;
-    border: 1px solid rgba(166, 227, 161, 0.3);
-}
-
-#custom-datetime:hover {
-    background: rgba(40, 40, 56, 0.95);
-}
-
+/* ═══════════════════════════════════════
+   ПРАВЫЕ МОДУЛИ
+   ═══════════════════════════════════════ */
+#pulseaudio,
 #custom-ip,
 #cpu,
 #memory,
-#pulseaudio {
-    background: rgba(30, 30, 46, 0.9);
-    border-radius: 16px;
-    margin: 4px 2px;
-    padding: 3px 10px;
-}
-
-#custom-ip {
-    color: #f5c2e7;
-    border: 1px solid rgba(245, 194, 231, 0.3);
-}
-
-#custom-ip:hover {
-    background: rgba(40, 40, 56, 0.95);
-}
-
-#cpu {
-    color: #fab387;
-    border: 1px solid rgba(250, 179, 135, 0.3);
-}
-
-#cpu:hover {
-    background: rgba(40, 40, 56, 0.95);
-}
-
-#memory {
-    color: #89b4fa;
-    border: 1px solid rgba(137, 180, 250, 0.3);
-}
-
-#memory:hover {
-    background: rgba(40, 40, 56, 0.95);
+#language,
+#tray,
+#custom-power {
+    background: rgba(20, 30, 55, 0.6);
+    color: #7aa2f7;
+    padding: 0 14px;
+    margin: 6px 3px;
+    border-radius: 10px;
 }
 
 #pulseaudio {
-    color: #cba6f7;
-    border: 1px solid rgba(203, 166, 247, 0.3);
-}
-
-#pulseaudio:hover {
-    background: rgba(40, 40, 56, 0.95);
+    color: #7aa2f7;
 }
 
 #pulseaudio.muted {
-    color: #6c7086;
-    border: 1px solid rgba(108, 112, 134, 0.3);
+    color: rgba(122, 162, 247, 0.35);
+}
+
+#custom-ip {
+    color: #5a8fdc;
+}
+
+#cpu {
+    color: #8cb4f7;
+}
+
+#memory {
+    color: #6a9bf7;
+}
+
+#language {
+    color: #a9c1f7;
 }
 
 #tray {
-    background: rgba(30, 30, 46, 0.9);
-    border-radius: 16px;
-    margin: 4px 2px;
-    padding: 3px 8px;
-    border: 1px solid rgba(148, 226, 213, 0.3);
+    padding: 0 10px;
 }
 
 #tray > .passive {
@@ -132,19 +123,38 @@ window#waybar {
 }
 
 #tray > .needs-attention {
-    -gtk-icon-effect: highlight;
+    background: rgba(90, 143, 220, 0.2);
 }
 
 #custom-power {
-    background: rgba(30, 30, 46, 0.9);
-    color: #f38ba8;
-    border-radius: 16px;
-    margin: 4px 0 4px 2px;
-    padding: 3px 10px;
-    border: 1px solid rgba(243, 139, 168, 0.3);
-    font-size: 13px;
+    color: #5a8fdc;
+    font-size: 16px;
 }
 
+/* ═══════════════════════════════════════
+   HOVER ЭФФЕКТЫ
+   ═══════════════════════════════════════ */
+#pulseaudio:hover,
+#custom-ip:hover,
+#cpu:hover,
+#memory:hover,
+#language:hover,
+#tray:hover,
 #custom-power:hover {
-    background: rgba(243, 139, 168, 0.3);
+    background: rgba(30, 45, 70, 0.7);
+    color: #a9c1f7;
+}
+
+/* ═══════════════════════════════════════
+   TOOLTIP
+   ═══════════════════════════════════════ */
+tooltip {
+    background: rgba(10, 15, 28, 0.9);
+    border: 1px solid rgba(90, 140, 220, 0.2);
+    border-radius: 10px;
+}
+
+tooltip label {
+    color: #7aa2f7;
+    padding: 8px;
 }

@@ -1,19 +1,31 @@
 {
-    "layer": "top",
+    "layer": "bottom",
     "position": "top",
-    "height": 42,
+    "height": 38,
     "spacing": 0,
     "margin-top": 6,
-    "margin-left": 8,
-    "margin-right": 8,
+    "margin-left": 10,
+    "margin-right": 10,
 
     "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["custom/datetime"],
-    "modules-right": ["pulseaudio", "custom/ip", "cpu", "memory", "hyprland/language", "tray", "custom/power"],
+    "modules-center": ["clock"],
+    "modules-right": [
+        "pulseaudio",
+        "custom/ip",
+        "cpu",
+        "memory",
+        "hyprland/language",
+        "tray",
+        "custom/power"
+    ],
 
-// left island
-
+    // ═══════════════════════════════════════
+    // ЛЕВАЯ ЧАСТЬ - Рабочие столы
+    // ═══════════════════════════════════════
     "hyprland/workspaces": {
+        "persistent-workspaces": {
+            "*": 5
+        },
         "format": "{icon}",
         "format-icons": {
             "1": "1",
@@ -21,75 +33,75 @@
             "3": "3",
             "4": "4",
             "5": "5",
-            "urgent": "󰀨",
+            "active": "",
             "default": "󰑊"
         },
-        "persistent-workspaces": {
-            "*": 5
-        },
-        "sort-by-number": true
     },
 
-    // center island
-
-    "custom/datetime": {
-        "format": "  {}",
-        "exec": "date +'%H:%M  |  %d.%m.%Y'",
+    // ═══════════════════════════════════════
+    // ЦЕНТР - Часы
+    // ═══════════════════════════════════════
+    "clock": {
+        "format": "󰥔  {:%H:%M:%S  |  %d.%m.%Y}",
         "interval": 1,
-        "tooltip": false
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "today": "<span color='#f38ba8'><b>{}</b></span>"
+            }
+        }
     },
 
-    // right island
+    // ═══════════════════════════════════════
+    // ПРАВАЯ ЧАСТЬ
+    // ═══════════════════════════════════════
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰝟  Mute",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click-right": "pavucontrol",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "scroll-step": 5
+    },
 
     "custom/ip": {
-        "format": "  {}",
         "exec": "ip -4 addr show | grep -oP '(?<=inet\\s)\\d+(\\.\\d+){3}' | grep -v '127.0.0.1' | head -1",
-        "interval": 30,
+        "interval": 300,
+        "format": "󰈀  {}",
         "tooltip": false
     },
 
     "cpu": {
-        "format": " {usage}%",
+        "format": "  {usage}%",
         "interval": 2,
-        "tooltip": false
+        "tooltip": true
     },
 
     "memory": {
         "format": " {percentage}%",
-        "interval": 5,
-        "tooltip": false
-    },
-
-    "pulseaudio": {
-        "format": "{icon}  {volume}%",
-        "format-bluetooth": "󰂯 {icon} {volume}%",
-        "format-muted": "  Muted",
-        "format-icons": {
-            "default": ["", "", ""]
-        },
-        "scroll-step": 5,
-        "tooltip": false,
-        "on-click-right": "pavucontrol",
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+        "interval": 2,
+        "tooltip-format": "RAM: {used:0.1f}GB / {total:0.1f}GB"
     },
 
     "hyprland/language": {
-    	"format": "  {}",
-    	"format-en": "EN",
-    	"format-ru": "RU",
-    	"on-click": "hyprctl switchxkblayout gaming-keyboard next",
-    	"tooltip": false
+        "format": "  {}",
+        "format-en": "EN",
+        "format-ru": "RU",
+        "on-click": "hyprctl switchxkblayout gaming-keyboard next",
+        "tooltip": false
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
     },
 
     "custom/power": {
-    	"format": "  ",
-    	"on-click": "~/.config/waybar/scripts/powermenu.sh",
-    	"tooltip": false
-    },
-    
-    "tray": {
-        "icon-size": 16,
-        "spacing": 6,
-        "tooltip": false
+        "format": "󰐥",
+        "tooltip": false,
+        "on-click": "~/.config/waybar/scripts/powermenu.sh"
     }
 }

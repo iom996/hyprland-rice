@@ -11,13 +11,14 @@
 - 💻Terminal: Alacritty 0.16.1-1
 - 🖥️Shell: zsh 5.9 (oh-my-zsh : theme gnzh)
 - 🌐Browser: Firefox
-- 📂File manager: dolphin
+- 📂File manager: nautilus
 - 📷Screenshot: Grim & Slurp 
+- 💬Notification: Dunst
 - Fonts: Font awesome & jetbrains mono
 
 ## -------------- INSTALL --------------
 ```bash
-pacman -S hyprland hyprpaper waybar wofi alacritty zsh firefox otf-font-awesome ttf-jetbrains-mono dolphin git nano slurp grim
+pacman -S hyprland hyprpaper waybar wofi alacritty zsh firefox otf-font-awesome ttf-jetbrains-mono nautilus git nano slurp grim dunst
 ```
 
 After installing the packages, run the bash script
