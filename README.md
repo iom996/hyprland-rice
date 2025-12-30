@@ -21,7 +21,13 @@
 pacman -S hyprland hyprpaper waybar wofi alacritty zsh firefox otf-font-awesome ttf-jetbrains-mono nautilus git nano slurp grim dunst
 ```
 
-After installing the packages, run the bash script
+After installing the packages, install the oh-my-zsh
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+After  installing the oh-my-zsh, run the bash script
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/Norton42qq/hyprland-rice/main/install.sh)
