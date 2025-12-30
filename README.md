@@ -4,9 +4,9 @@
 
 ## -------------- INFO & REQUIREMENTS --------------
 
-- 🔲Wayland compositor: Hyprland 0.52.2
+- 🔲Wayland compositor: Hyprland 0.53.0
 - 🍫Bar: Waybar 0.14.0-5
-- 🌅Wallpaper: hyprpaper 0.7.6-4
+- 🌅Wallpaper: hyprpaper 0.8.0-2
 - 🚀Launcher: wofi 1.5.1-1
 - 💻Terminal: Alacritty 0.16.1-1
 - 🖥️Shell: zsh 5.9 (oh-my-zsh : theme gnzh)
